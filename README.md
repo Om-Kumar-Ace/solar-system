@@ -1,6 +1,6 @@
 # 🌌 Cosmic Explorer: 3D Solar System
 
-![Project Screenshot](screenshot.jpg)
+![Project Screenshot](image.png)
 *Real-time 3D rendering of our solar system with interactive controls*
 
 ## 🚀 Features
@@ -18,7 +18,7 @@
 
 ## 🌟 Live Demo
 
-[Experience the Solar System](https://your-deployment-url.com)
+[Experience the Solar System](https://github.com/Om-Kumar-Ace/solar-system)
 
 ## 🛠️ Installation
 
@@ -30,7 +30,6 @@ git clone https://github.com/your-username/solar-system-3d.git
 cd solar-system-3d
 
 # Install dependencies (if any)
-npm install
-
-# Launch development server
-npm start
+ npm init -y       
+ npm install three
+ npm install three-orbitcontrols
