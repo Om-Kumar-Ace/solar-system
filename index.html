@@ -3,24 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Solar System Simulation</title>
+    <title>Cosmic Explorer: 3D Solar System</title>
+    <!-- Cosmic Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- Preload important assets -->
+    <link rel="preload" href="js/app.js" as="script">
 </head>
 <body>
-    <div id="scene-container"></div>
-    
-    <div class="controls-panel">
-        <h2>Planet Speed Controls</h2>
-        <div class="speed-controls" id="speed-controls">
-            <!-- Speed controls will be added dynamically -->
-        </div>
-        <button id="pause-resume">Pause</button>
-        <button id="reset-speeds">Reset Speeds</button>
-        <button id="toggle-dark">Dark Mode</button>
+    <!-- Cosmic Background Elements -->
+    <div class="cosmic-effects">
+        <div class="starfield"></div>
+        <div class="nebula-pulse"></div>
     </div>
     
+    <!-- Main 3D Container -->
+    <div id="scene-container"></div>
+    
+    <!-- Enhanced Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="planet-loader">
+            <div class="spinner"></div>
+            <div class="orbit-ring"></div>
+        </div>
+        <div class="loading-text" id="loading-text">
+            <span class="loading-letters">L</span>
+            <span class="loading-letters">O</span>
+            <span class="loading-letters">A</span>
+            <span class="loading-letters">D</span>
+            <span class="loading-letters">I</span>
+            <span class="loading-letters">N</span>
+            <span class="loading-letters">G</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+                <div class="progress-glow"></div>
+            </div>
+            <div class="progress-text"><span id="progress-percent">0</span>%</div>
+        </div>
+    </div>
+    
+    <!-- Cosmic Control Panel -->
+    <div class="control-panel">
+        <button id="pause-resume" data-tooltip="Pause/Resume Animation">
+            <i class="fas fa-pause"></i>
+            <span class="btn-text">Pause</span>
+        </button>
+        <button id="reset-view" data-tooltip="Reset Camera View">
+            <i class="fas fa-compass"></i>
+            <span class="btn-text">Reset</span>
+        </button>
+        <button id="toggle-dark" data-tooltip="Toggle Light/Dark Mode">
+            <i class="fas fa-sun"></i>
+            <span class="btn-text">Light Mode</span>
+        </button>
+        <button id="speed-up" data-tooltip="Increase Simulation Speed">
+            <i class="fas fa-fast-forward"></i>
+            <span class="btn-text">Speed Up</span>
+        </button>
+        <button id="slow-down" data-tooltip="Decrease Simulation Speed">
+            <i class="fas fa-fast-backward"></i>
+            <span class="btn-text">Slow Down</span>
+        </button>
+    </div>
+    
+    <!-- Planetary Info Panel -->
+    <div class="info-panel" id="info-panel">
+        <div class="info-header">
+            <h3 id="planet-name">Solar System</h3>
+            <button id="close-info" aria-label="Close panel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="info-content" id="info-content">
+            <div class="planet-facts">
+                <div class="fact-item">
+                    <i class="fas fa-ruler-horizontal"></i>
+                    <span class="fact-label">Diameter: </span>
+                    <span class="fact-value" id="diameter">-</span>
+                </div>
+                <div class="fact-item">
+                    <i class="fas fa-temperature-low"></i>
+                    <span class="fact-label">Temperature: </span>
+                    <span class="fact-value" id="temperature">-</span>
+                </div>
+                <div class="fact-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="fact-label">Day Length: </span>
+                    <span class="fact-value" id="day-length">-</span>
+                </div>
+                <div class="planet-description" id="planet-description">
+                    Select a celestial body to view detailed information.
+                </div>
+            </div>
+        </div>
+        <div class="info-footer">
+            <button id="more-info" class="info-button">
+                <i class="fas fa-external-link-alt"></i> Learn More
+            </button>
+        </div>
+    </div>
+
+    <!-- 3D Library Imports -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    
+    <!-- Main App Script -->
     <script src="js/app.js"></script>
+    
+    <!-- Loading Animation Script -->
+    <script>
+        // Animate loading letters
+        document.addEventListener('DOMContentLoaded', () => {
+            const letters = document.querySelectorAll('.loading-letters');
+            letters.forEach((letter, index) => {
+                letter.style.animation = `float 2s ease-in-out ${index * 0.1}s infinite alternate`;
+            });
+        });
+    </script>
 </body>
 </html>
