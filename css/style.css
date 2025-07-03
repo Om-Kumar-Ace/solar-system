@@ -1,6 +1,4 @@
-/* ===== Cosmic Responsive Styles ===== */
 :root {
-  /* Cosmic Color Palette */
   --space: #0a0e17;
   --nebula-purple: #6a00ff;
   --star-yellow: #ffcc00;
@@ -8,14 +6,11 @@
   --earth-blue: #00a8ff;
   --sun-orange: #ff7b25;
   --gas-giant: #b388ff;
-  
-  /* Responsive Sizes */
   --control-height: clamp(40px, 6vw, 60px);
   --info-panel-width: clamp(280px, 30vw, 350px);
   --font-base: clamp(14px, 2vw, 16px);
 }
 
-/* ===== Base Responsive Styles ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,7 +30,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===== Starfield Background ===== */
 .starfield {
   position: fixed;
   top: 0;
@@ -64,7 +58,6 @@ body {
   100% { opacity: 1; }
 }
 
-/* ===== Scene Container ===== */
 #scene-container {
   position: absolute;
   width: 100%;
@@ -72,7 +65,6 @@ body {
   z-index: 1;
 }
 
-/* ===== Responsive Loading Screen ===== */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -163,7 +155,6 @@ body {
   animation: pulse 2s infinite alternate;
 }
 
-/* ===== Adaptive Control Panel ===== */
 .control-panel {
   position: fixed;
   bottom: 1rem;
@@ -204,17 +195,14 @@ body {
     padding: 0.75rem 1.5rem;
     gap: 1rem;
   }
-  
   .control-panel button {
     padding: 0.75rem 1.25rem;
   }
-  
   .btn-text {
     display: inline;
   }
 }
 
-/* ===== Responsive Info Panel ===== */
 .info-panel {
   position: fixed;
   top: 1rem;
@@ -274,21 +262,18 @@ body {
   justify-content: flex-end;
 }
 
-/* ===== Mobile Adaptations ===== */
 @media (max-width: 768px) {
   .info-panel {
     width: calc(100% - 2rem);
     right: 1rem;
     max-height: 50vh;
   }
-  
   .control-panel {
     flex-wrap: wrap;
     justify-content: center;
     width: calc(100% - 2rem);
     bottom: 0.5rem;
   }
-  
   .control-panel button {
     flex: 1 1 calc(33% - 0.5rem);
     justify-content: center;
@@ -301,34 +286,42 @@ body {
     flex: 1 1 calc(50% - 0.5rem);
     padding: 0.5rem;
   }
-  
   .loading-text {
     flex-wrap: wrap;
     justify-content: center;
   }
 }
 
-/* ===== Touch Device Optimizations ===== */
 @media (hover: none) {
   .control-panel button {
     padding: 0.8rem 1rem;
   }
-  
   button, [role="button"] {
     min-width: 44px;
     min-height: 44px;
   }
 }
 
-/* ===== Print Styles ===== */
 @media print {
   .control-panel,
   .loading-screen {
     display: none;
   }
-  
   body {
     background: white;
     color: black;
   }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
 }
