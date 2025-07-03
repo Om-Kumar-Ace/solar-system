@@ -18,13 +18,13 @@
 
 ## 🌟 Live Demo
 
-[Experience the Solar System](https://github.com/Om-Kumar-Ace/solar-system)
+[Experience the Solar System](https://cosmicexplorer3dsolarsystem.vercel.app/)
 
 ## 🛠️ Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/solar-system-3d.git
+git clone https://github.com/Om-Kumar-Ace/solar-system
 
 # Navigate to project directory
 cd solar-system-3d
